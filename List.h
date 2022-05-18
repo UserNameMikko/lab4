@@ -21,6 +21,7 @@ template<class T>
 class List {
 private:
     Node<T>* head = nullptr;
+    Node<T>* tail = nullptr;
 protected:
     int size;
 public:
@@ -72,6 +73,28 @@ public:
             return NULL;
 
     }
+    friend bool operator +(List<T>& firstList, List<T>& secondList){
+        int s = firstList.size;
+        int s2 = secondList.size;
+        T array[s+s2];
+        int j=0;
+        for(Node<T>* i = secondList.head; i != NULL; i = i->Next){
+            array[j]=*i->Data;
+            j++;
+        }
+        /*for(int i = 0 ; i < s2;i++){
+            std::cout<<array[i]<<" ";
+        }*/
+        std::cout<<std::endl;
+        List<T> resList;
+        for(int i = 0; i < s2;i++){
+            auto val = new Value<T>;
+            val->value=array[i];
+            firstList.push_back(val->ptr);
+        }
+        return true;
+    }
+
     void push_front(T* data) {// Adds an element to the start of the list
         size++;
         if (head != NULL) {

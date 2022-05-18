@@ -24,6 +24,8 @@ int main() {
     //initializing of variables
 
     List<int> list;
+    List<int> sList;
+    List<int> tlist;
     int sizeOfList = 0;
     int choose = 0;
 
@@ -33,7 +35,7 @@ int main() {
     // fill the list
 
     for (int i = 0; i < sizeOfList; i++) {
-        Data<int> *data = new Data<int>;
+        auto *data = new Data<int>;
         std::cout << "input a value->";
         std::cin >> data->value;
         std::cout << "choose how do you want to fill the list:\n1-push_front\n2-push_back\n-->";
@@ -58,7 +60,8 @@ int main() {
 
     int ch;
     do {
-        Data<int> *data = new Data<int>;
+        auto *data = new Data<int>;
+
         menu();
         int size = list.size_list();
         int array[size];
@@ -102,6 +105,20 @@ int main() {
                 std::cout<<"input index:\n";
                 std::cin>>x;
                 std::cout<<list[x]<<std::endl;
+                break;
+            case 10:
+                int c;
+                std::cout<<"how many element do u want?\n";
+                std::cin>>c;
+                for (int i = 0;i < c ;i++){
+                    auto *data2 = new Data<int>;
+                    std::cout << "input a value->" << std::endl;
+                    std::cin >> data2->value;
+                    sList.push_back(data2->ptr);
+                }
+                std::cout<<list+sList<<std::endl;
+                break;
+            case 11:
                 break;
             default:
                 if (ch != 0)
