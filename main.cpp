@@ -8,6 +8,7 @@
 */
 
 #include "List.h"
+#include "sort.h"
 template<class T> struct Data{
     T value;
     T* ptr = &value;
@@ -22,7 +23,7 @@ int main() {
 
     //initializing of variables
 
-    List<double> list;
+    List<int> list;
     int sizeOfList = 0;
     int choose = 0;
 
@@ -32,7 +33,7 @@ int main() {
     // fill the list
 
     for (int i = 0; i < sizeOfList; i++) {
-        Data<double> *data = new Data<double>;
+        Data<int> *data = new Data<int>;
         std::cout << "input a value->";
         std::cin >> data->value;
         std::cout << "choose how do you want to fill the list:\n1-push_front\n2-push_back\n-->";
@@ -57,8 +58,10 @@ int main() {
 
     int ch;
     do {
-        Data<double> *data = new Data<double>;
+        Data<int> *data = new Data<int>;
         menu();
+        int size = list.size_list();
+        int array[size];
         std::cin >> ch;
         switch (ch) {
             case 1:
@@ -91,7 +94,8 @@ int main() {
                 std::cout << "Your list:\n" << list << std::endl;
                 break;
             case 8:
-                list.sort();
+                list.createArray(array, size);
+                sort(array, size);
                 break;
             case 9:
                 int x;

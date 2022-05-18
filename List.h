@@ -141,59 +141,13 @@ public:
             cnt++;
         }
     }
-
-
-    void sort(){
-        int sizeOfArr = size_list();
-        T tempArr[sizeOfArr];
+    T& createArray(T* array, int n){
         int j = 0;
-        for(Node<T>* i = this->head;i != NULL; i = i->Next){
-            tempArr[j] = *i->Data;
+        for(Node<T>* i = this->head ;i != NULL; i = i->Next){
+            array[j] = *i->Data;
             j++;
         }
-        std::cout<<"TEMP ARRAY before sort: "<<std::endl;
-        for(int i = 0; i < size_list();i++)
-            std::cout<<tempArr[i]<<" ";
-        std::cout<<std::endl;
-        int ch;
-        std::cout<<"1 - ascend\n2 - descend\n->";
-        std::cin>>ch;
-        switch(ch){
-            // ascend
-            case 1:
-                for (int i = 0; i != size; ++i) {
-                    int min = i;
-                    for (int k = i + 1; k != size; ++k)
-                        if (tempArr[k] < tempArr[min])
-                            min = k;
-
-                    int tmp = tempArr[min];
-                    tempArr[min] = tempArr[i];
-                    tempArr[i] = tmp;
-                }
-                break;
-            //descend
-            case 2:
-                for (int i = 0; i != size; ++i) {
-                    int min = i;
-                    for (int k = i + 1; k != size; ++k)
-                        if (tempArr[k] >= tempArr[min])
-                            min = k;
-
-                    int tmp = tempArr[min];
-                    tempArr[min] = tempArr[i];
-                    tempArr[i] = tmp;
-                }
-                break;
-        }
-        j = 0;
-        for(Node<T>* i = this->head;i != NULL; i = i->Next){
-            *i->Data = tempArr[j];
-            j++;
-        }
-        std::cout<< *this;
-        std::cout<<std::endl;
-
+        return *array;
     }
 
 };
