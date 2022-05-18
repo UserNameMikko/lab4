@@ -92,6 +92,7 @@ public:
             val->value=array[i];
             firstList.push_back(val->ptr);
         }
+
         return true;
     }
 
@@ -154,6 +155,9 @@ public:
         for (Node<T>* i = obj.head; i != NULL; i = i->Next)
             os << *i->Data  << " ";
         return os;
+    }
+    friend std::istream& operator>> (std::istream& is, const List<T>& obj){
+        obj.push_back();
     }
 
     T& operator[](const int x){

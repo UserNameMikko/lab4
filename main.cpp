@@ -17,7 +17,7 @@ template<class T> struct Data{
 void menu(){
     std::cout<<"1 - add new element push_back()\n2 - add new element push_front()\n3 - erase an element pop_back()\n"\
     "4 - erase an element pop_front()\n5 - define size of the list\n6 - is the list empty?\n"\
-    "7 - print()\n8 - sort\n9 - search by index\n0 - exit"<<std::endl;
+    "7 - print()\n8 - sort\n9 - search by index\n10 - copy\n0 - exit"<<std::endl;
 }
 int main() {
 
@@ -25,7 +25,6 @@ int main() {
 
     List<int> list;
     List<int> sList;
-    List<int> tlist;
     int sizeOfList = 0;
     int choose = 0;
 
